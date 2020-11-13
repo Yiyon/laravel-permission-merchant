@@ -1,11 +1,11 @@
 <?php
 
-namespace Spatie\Permission\Test;
+namespace Yiyon\Permission\Test;
 
-use Spatie\Permission\Contracts\Permission;
-use Spatie\Permission\Contracts\Role;
-use Spatie\Permission\Exceptions\GuardDoesNotMatch;
-use Spatie\Permission\Exceptions\PermissionDoesNotExist;
+use Yiyon\Permission\Contracts\Permission;
+use Yiyon\Permission\Contracts\Role;
+use Yiyon\Permission\Exceptions\GuardDoesNotMatch;
+use Yiyon\Permission\Exceptions\PermissionDoesNotExist;
 
 class HasPermissionsTest extends TestCase
 {

@@ -4,7 +4,7 @@
 
 # Laravel Permission Art
 
-The logo was inspired by the [Spatie](https://spatie.be) brand, and the well known minimal design of Laravel packages.
+The logo was inspired by the [Yiyon](https://spatie.be) brand, and the well known minimal design of Laravel packages.
 
 ## Fonts
 

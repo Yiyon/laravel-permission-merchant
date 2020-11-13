@@ -1,16 +1,16 @@
 <?php
 
-namespace Spatie\Permission\Models;
+namespace Yiyon\Permission\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Spatie\Permission\Contracts\Role as RoleContract;
-use Spatie\Permission\Exceptions\GuardDoesNotMatch;
-use Spatie\Permission\Exceptions\RoleAlreadyExists;
-use Spatie\Permission\Exceptions\RoleDoesNotExist;
-use Spatie\Permission\Guard;
-use Spatie\Permission\Traits\HasPermissions;
-use Spatie\Permission\Traits\RefreshesPermissionCache;
+use Yiyon\Permission\Contracts\Role as RoleContract;
+use Yiyon\Permission\Exceptions\GuardDoesNotMatch;
+use Yiyon\Permission\Exceptions\RoleAlreadyExists;
+use Yiyon\Permission\Exceptions\RoleDoesNotExist;
+use Yiyon\Permission\Guard;
+use Yiyon\Permission\Traits\HasPermissions;
+use Yiyon\Permission\Traits\RefreshesPermissionCache;
 
 class Role extends Model implements RoleContract
 {
@@ -91,9 +91,9 @@ class Role extends Model implements RoleContract
      * @param string      $name
      * @param string|null $guardName
      *
-     * @return \Spatie\Permission\Contracts\Role|\Spatie\Permission\Models\Role
+     * @return \Yiyon\Permission\Contracts\Role|\Yiyon\Permission\Models\Role
      *
-     * @throws \Spatie\Permission\Exceptions\RoleDoesNotExist
+     * @throws \Yiyon\Permission\Exceptions\RoleDoesNotExist
      */
     public static function findByName(string $name, $guardName = null): RoleContract
     {
@@ -133,7 +133,7 @@ class Role extends Model implements RoleContract
      * @param string      $name
      * @param string|null $guardName
      *
-     * @return \Spatie\Permission\Contracts\Role
+     * @return \Yiyon\Permission\Contracts\Role
      */
     public static function findOrCreate(string $name, $guardName = null): RoleContract
     {
@@ -159,7 +159,7 @@ class Role extends Model implements RoleContract
      *
      * @return bool
      *
-     * @throws \Spatie\Permission\Exceptions\GuardDoesNotMatch
+     * @throws \Yiyon\Permission\Exceptions\GuardDoesNotMatch
      */
     public function hasPermissionTo($permission): bool
     {

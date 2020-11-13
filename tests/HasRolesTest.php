@@ -1,10 +1,10 @@
 <?php
 
-namespace Spatie\Permission\Test;
+namespace Yiyon\Permission\Test;
 
-use Spatie\Permission\Contracts\Role;
-use Spatie\Permission\Exceptions\GuardDoesNotMatch;
-use Spatie\Permission\Exceptions\RoleDoesNotExist;
+use Yiyon\Permission\Contracts\Role;
+use Yiyon\Permission\Exceptions\GuardDoesNotMatch;
+use Yiyon\Permission\Exceptions\RoleDoesNotExist;
 
 class HasRolesTest extends TestCase
 {

@@ -15,7 +15,7 @@ Thus, a typical basic User model would have these basic minimum requirements:
 
 ```php
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Spatie\Permission\Traits\HasRoles;
+use Yiyon\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {

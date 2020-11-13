@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\Permission;
+namespace Yiyon\Permission;
 
 use Illuminate\Cache\CacheManager;
 use Illuminate\Contracts\Auth\Access\Authorizable;
 use Illuminate\Contracts\Auth\Access\Gate;
 use Illuminate\Support\Collection;
-use Spatie\Permission\Contracts\Permission;
-use Spatie\Permission\Contracts\Role;
+use Yiyon\Permission\Contracts\Permission;
+use Yiyon\Permission\Contracts\Role;
 
 class PermissionRegistrar
 {
@@ -143,7 +143,7 @@ class PermissionRegistrar
     /**
      * Get an instance of the permission class.
      *
-     * @return \Spatie\Permission\Contracts\Permission
+     * @return \Yiyon\Permission\Contracts\Permission
      */
     public function getPermissionClass(): Permission
     {
@@ -160,7 +160,7 @@ class PermissionRegistrar
     /**
      * Get an instance of the role class.
      *
-     * @return \Spatie\Permission\Contracts\Role
+     * @return \Yiyon\Permission\Contracts\Role
      */
     public function getRoleClass(): Role
     {

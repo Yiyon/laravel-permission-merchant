@@ -1,15 +1,15 @@
 <?php
 
-namespace Spatie\Permission\Test;
+namespace Yiyon\Permission\Test;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
-use Spatie\Permission\Exceptions\UnauthorizedException;
-use Spatie\Permission\Middlewares\PermissionMiddleware;
-use Spatie\Permission\Middlewares\RoleMiddleware;
-use Spatie\Permission\Middlewares\RoleOrPermissionMiddleware;
-use Spatie\Permission\Models\Permission;
+use Yiyon\Permission\Exceptions\UnauthorizedException;
+use Yiyon\Permission\Middlewares\PermissionMiddleware;
+use Yiyon\Permission\Middlewares\RoleMiddleware;
+use Yiyon\Permission\Middlewares\RoleOrPermissionMiddleware;
+use Yiyon\Permission\Models\Permission;
 
 class WildcardMiddlewareTest extends TestCase
 {

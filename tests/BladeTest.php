@@ -1,9 +1,9 @@
 <?php
 
-namespace Spatie\Permission\Test;
+namespace Yiyon\Permission\Test;
 
 use Artisan;
-use Spatie\Permission\Contracts\Role;
+use Yiyon\Permission\Contracts\Role;
 
 class BladeTest extends TestCase
 {

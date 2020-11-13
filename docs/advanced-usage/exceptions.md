@@ -14,7 +14,7 @@ You can find all the exceptions added by this package in the code here: https://
 ```php
 public function render($request, Throwable $exception)
 {
-    if ($exception instanceof \Spatie\Permission\Exceptions\UnauthorizedException) {
+    if ($exception instanceof \Yiyon\Permission\Exceptions\UnauthorizedException) {
         return response()->json([
             'responseMessage' => 'You do not have the required authorization.',
             'responseStatus'  => 403,

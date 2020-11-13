@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\Permission\Test;
+namespace Yiyon\Permission\Test;
 
-use Spatie\Permission\Contracts\Role;
-use Spatie\Permission\Exceptions\GuardDoesNotMatch;
-use Spatie\Permission\Exceptions\PermissionDoesNotExist;
-use Spatie\Permission\Exceptions\RoleAlreadyExists;
-use Spatie\Permission\Exceptions\RoleDoesNotExist;
-use Spatie\Permission\Models\Permission;
+use Yiyon\Permission\Contracts\Role;
+use Yiyon\Permission\Exceptions\GuardDoesNotMatch;
+use Yiyon\Permission\Exceptions\PermissionDoesNotExist;
+use Yiyon\Permission\Exceptions\RoleAlreadyExists;
+use Yiyon\Permission\Exceptions\RoleDoesNotExist;
+use Yiyon\Permission\Models\Permission;
 
 class RoleTest extends TestCase
 {

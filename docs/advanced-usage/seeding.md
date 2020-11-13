@@ -9,7 +9,7 @@ You may discover that it is best to flush this package's cache before seeding, t
 
 ```php
 // reset cached roles and permissions
-app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
+app()[\Yiyon\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
 ```
 
 You can do this in the `SetUp()` method of your test suite (see the Testing page in the docs).
@@ -20,15 +20,15 @@ Here is a sample seeder, which first clears the cache, creates permissions and t
 
 ```php
 use Illuminate\Database\Seeder;
-use Spatie\Permission\Models\Role;
-use Spatie\Permission\Models\Permission;
+use Yiyon\Permission\Models\Role;
+use Yiyon\Permission\Models\Permission;
 
 class RolesAndPermissionsSeeder extends Seeder
 {
     public function run()
     {
         // Reset cached roles and permissions
-        app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
+        app()[\Yiyon\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
 
         // create permissions
         Permission::create(['name' => 'edit articles']);

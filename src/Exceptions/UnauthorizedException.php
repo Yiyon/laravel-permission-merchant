@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\Permission\Exceptions;
+namespace Yiyon\Permission\Exceptions;
 
 use Symfony\Component\HttpKernel\Exception\HttpException;
 

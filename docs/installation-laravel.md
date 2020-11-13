@@ -22,14 +22,14 @@ This package can be used with Laravel 6.0 or higher.
     ```
     'providers' => [
         // ...
-        Spatie\Permission\PermissionServiceProvider::class,
+        Yiyon\Permission\PermissionServiceProvider::class,
     ];
     ```
 
 5. You should publish [the migration](https://github.com/spatie/laravel-permission/blob/master/database/migrations/create_permission_tables.php.stub) and the [`config/permission.php` config file](https://github.com/spatie/laravel-permission/blob/master/config/permission.php) with:
 
     ```
-    php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider"
+    php artisan vendor:publish --provider="Yiyon\Permission\PermissionServiceProvider"
     ```
 
 6. NOTE: If you are using UUIDs, see the Advanced section of the docs on UUID steps, before you continue. It explains some changes you may want to make to the migrations and config file before continuing. It also mentions important considerations after extending this package's models for UUID capability.

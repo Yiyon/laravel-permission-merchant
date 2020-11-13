@@ -3,11 +3,11 @@ title: Basic Usage
 weight: 1
 ---
 
-First, add the `Spatie\Permission\Traits\HasRoles` trait to your `User` model(s):
+First, add the `Yiyon\Permission\Traits\HasRoles` trait to your `User` model(s):
 
 ```php
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Spatie\Permission\Traits\HasRoles;
+use Yiyon\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
@@ -21,8 +21,8 @@ This package allows for users to be associated with permissions and roles. Every
 A `Role` and a `Permission` are regular Eloquent models. They require a `name` and can be created like this:
 
 ```php
-use Spatie\Permission\Models\Role;
-use Spatie\Permission\Models\Permission;
+use Yiyon\Permission\Models\Role;
+use Yiyon\Permission\Models\Permission;
 
 $role = Role::create(['name' => 'writer']);
 $permission = Permission::create(['name' => 'edit articles']);
@@ -74,7 +74,7 @@ The `HasRoles` trait also adds a `role` scope to your models to scope the query 
 $users = User::role('writer')->get(); // Returns only users with the role 'writer'
 ```
 
-The `role` scope can accept a string, a `\Spatie\Permission\Models\Role` object or an `\Illuminate\Support\Collection` object.
+The `role` scope can accept a string, a `\Yiyon\Permission\Models\Role` object or an `\Illuminate\Support\Collection` object.
 
 The same trait also adds a scope to only get users that have a certain permission.
 
@@ -82,7 +82,7 @@ The same trait also adds a scope to only get users that have a certain permissio
 $users = User::permission('edit articles')->get(); // Returns only users with the permission 'edit articles' (inherited or directly)
 ```
 
-The scope can accept a string, a `\Spatie\Permission\Models\Permission` object or an `\Illuminate\Support\Collection` object.
+The scope can accept a string, a `\Yiyon\Permission\Models\Permission` object or an `\Illuminate\Support\Collection` object.
 
 
 ### Eloquent

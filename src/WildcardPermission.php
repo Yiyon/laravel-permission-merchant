@@ -1,9 +1,9 @@
 <?php
 
-namespace Spatie\Permission;
+namespace Yiyon\Permission;
 
 use Illuminate\Support\Collection;
-use Spatie\Permission\Exceptions\WildcardPermissionNotProperlyFormatted;
+use Yiyon\Permission\Exceptions\WildcardPermissionNotProperlyFormatted;
 
 class WildcardPermission
 {

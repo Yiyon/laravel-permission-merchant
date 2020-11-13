@@ -1,11 +1,11 @@
 <?php
 
-namespace Spatie\Permission\Test;
+namespace Yiyon\Permission\Test;
 
-use Spatie\Permission\Exceptions\PermissionDoesNotExist;
-use Spatie\Permission\Exceptions\WildcardPermissionInvalidArgument;
-use Spatie\Permission\Exceptions\WildcardPermissionNotProperlyFormatted;
-use Spatie\Permission\Models\Permission;
+use Yiyon\Permission\Exceptions\PermissionDoesNotExist;
+use Yiyon\Permission\Exceptions\WildcardPermissionInvalidArgument;
+use Yiyon\Permission\Exceptions\WildcardPermissionNotProperlyFormatted;
+use Yiyon\Permission\Models\Permission;
 
 class WildcardHasPermissionsTest extends TestCase
 {

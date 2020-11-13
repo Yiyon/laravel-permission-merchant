@@ -1,17 +1,17 @@
 <?php
 
-namespace Spatie\Permission\Traits;
+namespace Yiyon\Permission\Traits;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Support\Collection;
-use Spatie\Permission\Contracts\Permission;
-use Spatie\Permission\Exceptions\GuardDoesNotMatch;
-use Spatie\Permission\Exceptions\PermissionDoesNotExist;
-use Spatie\Permission\Exceptions\WildcardPermissionInvalidArgument;
-use Spatie\Permission\Guard;
-use Spatie\Permission\PermissionRegistrar;
-use Spatie\Permission\WildcardPermission;
+use Yiyon\Permission\Contracts\Permission;
+use Yiyon\Permission\Exceptions\GuardDoesNotMatch;
+use Yiyon\Permission\Exceptions\PermissionDoesNotExist;
+use Yiyon\Permission\Exceptions\WildcardPermissionInvalidArgument;
+use Yiyon\Permission\Guard;
+use Yiyon\Permission\PermissionRegistrar;
+use Yiyon\Permission\WildcardPermission;
 
 trait HasPermissions
 {
@@ -55,7 +55,7 @@ trait HasPermissions
      * Scope the model query to certain permissions only.
      *
      * @param \Illuminate\Database\Eloquent\Builder $query
-     * @param string|array|\Spatie\Permission\Contracts\Permission|\Illuminate\Support\Collection $permissions
+     * @param string|array|\Yiyon\Permission\Contracts\Permission|\Illuminate\Support\Collection $permissions
      *
      * @return \Illuminate\Database\Eloquent\Builder
      */
@@ -80,7 +80,7 @@ trait HasPermissions
     }
 
     /**
-     * @param string|array|\Spatie\Permission\Contracts\Permission|\Illuminate\Support\Collection $permissions
+     * @param string|array|\Yiyon\Permission\Contracts\Permission|\Illuminate\Support\Collection $permissions
      *
      * @return array
      */
@@ -104,7 +104,7 @@ trait HasPermissions
     /**
      * Determine if the model may perform the given permission.
      *
-     * @param string|int|\Spatie\Permission\Contracts\Permission $permission
+     * @param string|int|\Yiyon\Permission\Contracts\Permission $permission
      * @param string|null $guardName
      *
      * @return bool
@@ -142,7 +142,7 @@ trait HasPermissions
     /**
      * Validates a wildcard permission against all permissions of a user.
      *
-     * @param string|int|\Spatie\Permission\Contracts\Permission $permission
+     * @param string|int|\Yiyon\Permission\Contracts\Permission $permission
      * @param string|null $guardName
      *
      * @return bool
@@ -190,7 +190,7 @@ trait HasPermissions
     /**
      * An alias to hasPermissionTo(), but avoids throwing an exception.
      *
-     * @param string|int|\Spatie\Permission\Contracts\Permission $permission
+     * @param string|int|\Yiyon\Permission\Contracts\Permission $permission
      * @param string|null $guardName
      *
      * @return bool
@@ -249,7 +249,7 @@ trait HasPermissions
     /**
      * Determine if the model has, via roles, the given permission.
      *
-     * @param \Spatie\Permission\Contracts\Permission $permission
+     * @param \Yiyon\Permission\Contracts\Permission $permission
      *
      * @return bool
      */
@@ -261,7 +261,7 @@ trait HasPermissions
     /**
      * Determine if the model has the given permission.
      *
-     * @param string|int|\Spatie\Permission\Contracts\Permission $permission
+     * @param string|int|\Yiyon\Permission\Contracts\Permission $permission
      *
      * @return bool
      * @throws PermissionDoesNotExist
@@ -314,7 +314,7 @@ trait HasPermissions
     /**
      * Grant the given permission(s) to a role.
      *
-     * @param string|array|\Spatie\Permission\Contracts\Permission|\Illuminate\Support\Collection $permissions
+     * @param string|array|\Yiyon\Permission\Contracts\Permission|\Illuminate\Support\Collection $permissions
      *
      * @return $this
      */
@@ -367,7 +367,7 @@ trait HasPermissions
     /**
      * Remove all current permissions and set the given ones.
      *
-     * @param string|array|\Spatie\Permission\Contracts\Permission|\Illuminate\Support\Collection $permissions
+     * @param string|array|\Yiyon\Permission\Contracts\Permission|\Illuminate\Support\Collection $permissions
      *
      * @return $this
      */
@@ -381,7 +381,7 @@ trait HasPermissions
     /**
      * Revoke the given permission.
      *
-     * @param \Spatie\Permission\Contracts\Permission|\Spatie\Permission\Contracts\Permission[]|string|string[] $permission
+     * @param \Yiyon\Permission\Contracts\Permission|\Yiyon\Permission\Contracts\Permission[]|string|string[] $permission
      *
      * @return $this
      */
@@ -402,9 +402,9 @@ trait HasPermissions
     }
 
     /**
-     * @param string|array|\Spatie\Permission\Contracts\Permission|\Illuminate\Support\Collection $permissions
+     * @param string|array|\Yiyon\Permission\Contracts\Permission|\Illuminate\Support\Collection $permissions
      *
-     * @return \Spatie\Permission\Contracts\Permission|\Spatie\Permission\Contracts\Permission[]|\Illuminate\Support\Collection
+     * @return \Yiyon\Permission\Contracts\Permission|\Yiyon\Permission\Contracts\Permission[]|\Illuminate\Support\Collection
      */
     protected function getStoredPermission($permissions)
     {
@@ -429,9 +429,9 @@ trait HasPermissions
     }
 
     /**
-     * @param \Spatie\Permission\Contracts\Permission|\Spatie\Permission\Contracts\Role $roleOrPermission
+     * @param \Yiyon\Permission\Contracts\Permission|\Yiyon\Permission\Contracts\Role $roleOrPermission
      *
-     * @throws \Spatie\Permission\Exceptions\GuardDoesNotMatch
+     * @throws \Yiyon\Permission\Exceptions\GuardDoesNotMatch
      */
     protected function ensureModelSharesGuard($roleOrPermission)
     {

@@ -1,34 +1,34 @@
 <?php
 
-namespace Spatie\Permission\Test;
+namespace Yiyon\Permission\Test;
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Schema;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Spatie\Permission\Contracts\Permission;
-use Spatie\Permission\Contracts\Role;
-use Spatie\Permission\PermissionRegistrar;
-use Spatie\Permission\PermissionServiceProvider;
+use Yiyon\Permission\Contracts\Permission;
+use Yiyon\Permission\Contracts\Role;
+use Yiyon\Permission\PermissionRegistrar;
+use Yiyon\Permission\PermissionServiceProvider;
 
 abstract class TestCase extends Orchestra
 {
-    /** @var \Spatie\Permission\Test\User */
+    /** @var \Yiyon\Permission\Test\User */
     protected $testUser;
 
-    /** @var \Spatie\Permission\Test\Admin */
+    /** @var \Yiyon\Permission\Test\Admin */
     protected $testAdmin;
 
-    /** @var \Spatie\Permission\Models\Role */
+    /** @var \Yiyon\Permission\Models\Role */
     protected $testUserRole;
 
-    /** @var \Spatie\Permission\Models\Role */
+    /** @var \Yiyon\Permission\Models\Role */
     protected $testAdminRole;
 
-    /** @var \Spatie\Permission\Models\Permission */
+    /** @var \Yiyon\Permission\Models\Permission */
     protected $testUserPermission;
 
-    /** @var \Spatie\Permission\Models\Permission */
+    /** @var \Yiyon\Permission\Models\Permission */
     protected $testAdminPermission;
 
     public function setUp(): void

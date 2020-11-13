@@ -1,10 +1,10 @@
 <?php
 
-namespace Spatie\Permission\Test;
+namespace Yiyon\Permission\Test;
 
 use Illuminate\Support\Facades\Artisan;
-use Spatie\Permission\Models\Permission;
-use Spatie\Permission\Models\Role;
+use Yiyon\Permission\Models\Permission;
+use Yiyon\Permission\Models\Role;
 
 class CommandTest extends TestCase
 {

@@ -51,7 +51,7 @@ $user->hasAllRoles(Role::all());
 ```
 
 The `assignRole`, `hasRole`, `hasAnyRole`, `hasAllRoles`  and `removeRole` functions can accept a
- string, a `\Spatie\Permission\Models\Role` object or an `\Illuminate\Support\Collection` object.
+ string, a `\Yiyon\Permission\Models\Role` object or an `\Illuminate\Support\Collection` object.
 
 A permission can be given to a role:
 
@@ -72,7 +72,7 @@ $role->revokePermissionTo('edit articles');
 ```
 
 The `givePermissionTo` and `revokePermissionTo` functions can accept a
-string or a `Spatie\Permission\Models\Permission` object.
+string or a `Yiyon\Permission\Models\Permission` object.
 
 
 Permissions are inherited from roles automatically. 
@@ -123,7 +123,7 @@ $user->getPermissionsViaRoles();
 $user->getAllPermissions();
 ```
 
-All these responses are collections of `Spatie\Permission\Models\Permission` objects.
+All these responses are collections of `Yiyon\Permission\Models\Permission` objects.
 
 
 

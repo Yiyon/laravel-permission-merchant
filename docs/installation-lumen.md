@@ -30,8 +30,8 @@ Then, in `bootstrap/app.php`, uncomment the `auth` middleware, and register this
 ```php
 $app->routeMiddleware([
     'auth'       => App\Http\Middleware\Authenticate::class,
-    'permission' => Spatie\Permission\Middlewares\PermissionMiddleware::class,
-    'role'       => Spatie\Permission\Middlewares\RoleMiddleware::class,
+    'permission' => Yiyon\Permission\Middlewares\PermissionMiddleware::class,
+    'role'       => Yiyon\Permission\Middlewares\RoleMiddleware::class,
 ]);
 ```
 
@@ -40,7 +40,7 @@ $app->routeMiddleware([
 ```php
 $app->configure('permission');
 $app->alias('cache', \Illuminate\Cache\CacheManager::class);  // if you don't have this already
-$app->register(Spatie\Permission\PermissionServiceProvider::class);
+$app->register(Yiyon\Permission\PermissionServiceProvider::class);
 ```
 
 ... and in the same file, since the Authorization layer uses guards you will need to uncomment the AuthServiceProvider line:

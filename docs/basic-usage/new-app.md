@@ -29,14 +29,14 @@ touch database/database.sqlite
 
 # Package
 composer require spatie/laravel-permission
-php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider"
+php artisan vendor:publish --provider="Yiyon\Permission\PermissionServiceProvider"
 git add .
-git commit -m "Add Spatie Laravel Permissions package"
+git commit -m "Add Yiyon Laravel Permissions package"
 php artisan migrate:fresh
 
 # Add `HasRoles` trait to User model
-sed -i '' $'s/use Notifiable;/use Notifiable;\\\n    use \\\\Spatie\\\\Permission\\\\Traits\\\\HasRoles;/' app/User.php
-sed -i '' $'s/use HasFactory, Notifiable;/use HasFactory, Notifiable;\\\n    use \\\\Spatie\\\\Permission\\\\Traits\\\\HasRoles;/' app/Models/User.php
+sed -i '' $'s/use Notifiable;/use Notifiable;\\\n    use \\\\Yiyon\\\\Permission\\\\Traits\\\\HasRoles;/' app/User.php
+sed -i '' $'s/use HasFactory, Notifiable;/use HasFactory, Notifiable;\\\n    use \\\\Yiyon\\\\Permission\\\\Traits\\\\HasRoles;/' app/Models/User.php
 git add . && git commit -m "Add HasRoles trait"
 
 # Add Laravel's basic auth scaffolding
@@ -55,9 +55,9 @@ git add . && git commit -m "Setup auth scaffold"
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Spatie\Permission\Models\Permission;
-use Spatie\Permission\Models\Role;
-use Spatie\Permission\PermissionRegistrar;
+use Yiyon\Permission\Models\Permission;
+use Yiyon\Permission\Models\Role;
+use Yiyon\Permission\PermissionRegistrar;
 
 class PermissionsDemoSeeder extends Seeder
 {

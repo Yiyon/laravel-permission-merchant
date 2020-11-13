@@ -1,8 +1,8 @@
 <?php
 
-namespace Spatie\Permission\Test;
+namespace Yiyon\Permission\Test;
 
-use Spatie\Permission\Models\Permission;
+use Yiyon\Permission\Models\Permission;
 
 class MultipleGuardsTest extends TestCase
 {
