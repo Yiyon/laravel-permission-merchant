@@ -106,7 +106,7 @@ return [
 
     'enable_wildcard_permission' => false,
 
-    'cache' => [
+    'cache'    => [
 
         /*
          * By default all permissions are cached for 24 hours to speed up performance.
@@ -140,4 +140,15 @@ return [
 
         'store' => 'default',
     ],
+
+    /*
+     * 多商户权限相关
+     * guard       名称
+     * merchant_id 商户编号字段名称
+     */
+    'merchant' => [
+        'guard'         => 'sso_users',
+        'merchant_id'   => 'merchant_id',
+        'merchantscope' => 'merchantscope',
+    ]
 ];

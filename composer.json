@@ -1,6 +1,6 @@
 {
-    "name": "spatie/laravel-permission",
-    "description": "Permission handling for Laravel 6.0 and up",
+    "name": "laravel-permission-merchant",
+    "description": "Permission handling for Laravel 6.0 and up 增加多商户权限 linshaoneng@sina.cn",
     "keywords": [
         "spatie",
         "laravel",
@@ -11,7 +11,7 @@
         "rbac",
         "security"
     ],
-    "homepage": "https://github.com/spatie/laravel-permission",
+    "homepage": "https://github.com/Yiyon/laravel-permission-merchant",
     "license": "MIT",
     "authors": [
         {
