@@ -1,7 +1,7 @@
 <p align="center"><img src="/art/socialcard.png" alt="Social Card of Laravel Permission"></p>
 
 # Associate users with permissions and roles 
-# 增加多商户权限
+# 增加多商户权限 林少能 linshaoneng <linshaoneng@sina.cn>
 
 ### Sponsor
 
