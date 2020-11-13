@@ -1,5 +1,5 @@
 {
-    "name": "laravel-permission-merchant",
+    "name": "yiyon/laravel-permission-merchant",
     "description": "Permission handling for Laravel 6.0 and up 增加多商户权限 linshaoneng@sina.cn",
     "keywords": [
         "spatie",
