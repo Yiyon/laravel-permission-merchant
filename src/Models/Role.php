@@ -1,15 +1,16 @@
 <?php
 
-namespace Spatie\Permission\Models;
+namespace Yiyon\Permission\Models;
 
-use Spatie\Permission\Guard;
+use Yiyon\Permission\Guard;
 use Illuminate\Database\Eloquent\Model;
-use Spatie\Permission\Traits\HasPermissions;
-use Spatie\Permission\Exceptions\RoleDoesNotExist;
-use Spatie\Permission\Exceptions\GuardDoesNotMatch;
-use Spatie\Permission\Exceptions\RoleAlreadyExists;
-use Spatie\Permission\Contracts\Role as RoleContract;
-use Spatie\Permission\Traits\RefreshesPermissionCache;
+use Illuminate\Database\Eloquent\Builder;
+use Yiyon\Permission\Traits\HasPermissions;
+use Yiyon\Permission\Exceptions\RoleDoesNotExist;
+use Yiyon\Permission\Exceptions\GuardDoesNotMatch;
+use Yiyon\Permission\Exceptions\RoleAlreadyExists;
+use Yiyon\Permission\Contracts\Role as RoleContract;
+use Yiyon\Permission\Traits\RefreshesPermissionCache;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
@@ -27,6 +28,22 @@ class Role extends Model implements RoleContract
         parent::__construct($attributes);
 
         $this->setTable(config('permission.table_names.roles'));
+    }
+
+    /**
+     * 查询的时候，默认增加商户编号
+     */
+    protected static function boot()
+    {
+        parent::boot();
+        //默认加上商户编号
+        $merchantscope = config('merchant.merchantscope');
+        static::addGlobalScope($merchantscope,
+            function (Builder $builder) {
+                $guard       = config('merchant.guard');
+                $merchant_id = config('merchant.merchant_id');
+                $builder->where($merchant_id, '=', auth($guard)->user()->merchant_id);
+            });
     }
 
     public static function create(array $attributes = [])
@@ -77,9 +94,9 @@ class Role extends Model implements RoleContract
      * @param string $name
      * @param string|null $guardName
      *
-     * @return \Spatie\Permission\Contracts\Role|\Spatie\Permission\Models\Role
+     * @return \Yiyon\Permission\Contracts\Role|\Yiyon\Permission\Models\Role
      *
-     * @throws \Spatie\Permission\Exceptions\RoleDoesNotExist
+     * @throws \Yiyon\Permission\Exceptions\RoleDoesNotExist
      */
     public static function findByName(string $name, $guardName = null): RoleContract
     {
@@ -113,7 +130,7 @@ class Role extends Model implements RoleContract
      * @param string $name
      * @param string|null $guardName
      *
-     * @return \Spatie\Permission\Contracts\Role
+     * @return \Yiyon\Permission\Contracts\Role
      */
     public static function findOrCreate(string $name, $guardName = null): RoleContract
     {
@@ -135,7 +152,7 @@ class Role extends Model implements RoleContract
      *
      * @return bool
      *
-     * @throws \Spatie\Permission\Exceptions\GuardDoesNotMatch
+     * @throws \Yiyon\Permission\Exceptions\GuardDoesNotMatch
      */
     public function hasPermissionTo($permission): bool
     {

@@ -1,9 +1,9 @@
 <?php
 
-namespace Spatie\Permission\Test;
+namespace Yiyon\Permission\Test;
 
-use Spatie\Permission\Contracts\Permission;
-use Spatie\Permission\Exceptions\PermissionAlreadyExists;
+use Yiyon\Permission\Contracts\Permission;
+use Yiyon\Permission\Exceptions\PermissionAlreadyExists;
 
 class PermissionTest extends TestCase
 {

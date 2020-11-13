@@ -10,10 +10,10 @@ return [
          * is often just the "Permission" model but you may use whatever you like.
          *
          * The model you want to use as a Permission model needs to implement the
-         * `Spatie\Permission\Contracts\Permission` contract.
+         * `Yiyon\Permission\Contracts\Permission` contract.
          */
 
-        'permission' => Spatie\Permission\Models\Permission::class,
+        'permission' => Yiyon\Permission\Models\Permission::class,
 
         /*
          * When using the "HasRoles" trait from this package, we need to know which
@@ -21,10 +21,10 @@ return [
          * is often just the "Role" model but you may use whatever you like.
          *
          * The model you want to use as a Role model needs to implement the
-         * `Spatie\Permission\Contracts\Role` contract.
+         * `Yiyon\Permission\Contracts\Role` contract.
          */
 
-        'role' => Spatie\Permission\Models\Role::class,
+        'role' => Yiyon\Permission\Models\Role::class,
 
     ],
 
@@ -92,7 +92,7 @@ return [
 
     'display_permission_in_exception' => false,
 
-    'cache' => [
+    'cache'    => [
 
         /*
          * By default all permissions are cached for 24 hours to speed up performance.
@@ -105,7 +105,7 @@ return [
          * The cache key used to store all permissions.
          */
 
-        'key' => 'spatie.permission.cache',
+        'key' => 'yiyon.permission.cache',
 
         /*
          * When checking for a permission against a model by passing a Permission
@@ -126,4 +126,15 @@ return [
 
         'store' => 'default',
     ],
+
+    /*
+     * 多商户权限相关
+     * guard       名称
+     * merchant_id 商户编号字段名称
+     */
+    'merchant' => [
+        'guard'         => 'sso_users',
+        'merchant_id'   => 'merchant_id',
+        'merchantscope' => 'merchantscope',
+    ]
 ];

@@ -1,7 +1,7 @@
 # Associate users with permissions and roles
 
 
-### Sponsor
+### Sponsor  多商户平台版本
 
 <table>
    <tr>

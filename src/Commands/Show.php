@@ -1,11 +1,11 @@
 <?php
 
-namespace Spatie\Permission\Commands;
+namespace Yiyon\Permission\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Collection;
-use Spatie\Permission\Models\Role;
-use Spatie\Permission\Models\Permission;
+use Yiyon\Permission\Models\Role;
+use Yiyon\Permission\Models\Permission;
 
 class Show extends Command
 {

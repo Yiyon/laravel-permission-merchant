@@ -1,18 +1,19 @@
 <?php
 
-namespace Spatie\Permission\Models;
+namespace Yiyon\Permission\Models;
 
-use Spatie\Permission\Guard;
+use Yiyon\Permission\Guard;
 use Illuminate\Support\Collection;
-use Spatie\Permission\Traits\HasRoles;
+use Yiyon\Permission\Traits\HasRoles;
 use Illuminate\Database\Eloquent\Model;
-use Spatie\Permission\PermissionRegistrar;
-use Spatie\Permission\Traits\RefreshesPermissionCache;
+use Illuminate\Database\Eloquent\Builder;
+use Yiyon\Permission\PermissionRegistrar;
+use Yiyon\Permission\Traits\RefreshesPermissionCache;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
-use Spatie\Permission\Exceptions\PermissionDoesNotExist;
+use Yiyon\Permission\Exceptions\PermissionDoesNotExist;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Spatie\Permission\Exceptions\PermissionAlreadyExists;
-use Spatie\Permission\Contracts\Permission as PermissionContract;
+use Yiyon\Permission\Exceptions\PermissionAlreadyExists;
+use Yiyon\Permission\Contracts\Permission as PermissionContract;
 
 class Permission extends Model implements PermissionContract
 {
@@ -28,6 +29,22 @@ class Permission extends Model implements PermissionContract
         parent::__construct($attributes);
 
         $this->setTable(config('permission.table_names.permissions'));
+    }
+
+    /**
+     * 查询的时候，默认增加商户编号
+     */
+    protected static function boot()
+    {
+        parent::boot();
+        //默认加上商户编号
+        $merchantscope = config('merchant.merchantscope');
+        static::addGlobalScope($merchantscope,
+            function (Builder $builder) {
+                $guard       = config('merchant.guard');
+                $merchant_id = config('merchant.merchant_id');
+                $builder->where($merchant_id, '=', auth($guard)->user()->merchant_id);
+            });
     }
 
     public static function create(array $attributes = [])
@@ -80,9 +97,9 @@ class Permission extends Model implements PermissionContract
      * @param string $name
      * @param string|null $guardName
      *
-     * @throws \Spatie\Permission\Exceptions\PermissionDoesNotExist
+     * @throws \Yiyon\Permission\Exceptions\PermissionDoesNotExist
      *
-     * @return \Spatie\Permission\Contracts\Permission
+     * @return \Yiyon\Permission\Contracts\Permission
      */
     public static function findByName(string $name, $guardName = null): PermissionContract
     {
@@ -101,9 +118,9 @@ class Permission extends Model implements PermissionContract
      * @param int $id
      * @param string|null $guardName
      *
-     * @throws \Spatie\Permission\Exceptions\PermissionDoesNotExist
+     * @throws \Yiyon\Permission\Exceptions\PermissionDoesNotExist
      *
-     * @return \Spatie\Permission\Contracts\Permission
+     * @return \Yiyon\Permission\Contracts\Permission
      */
     public static function findById(int $id, $guardName = null): PermissionContract
     {
@@ -123,7 +140,7 @@ class Permission extends Model implements PermissionContract
      * @param string $name
      * @param string|null $guardName
      *
-     * @return \Spatie\Permission\Contracts\Permission
+     * @return \Yiyon\Permission\Contracts\Permission
      */
     public static function findOrCreate(string $name, $guardName = null): PermissionContract
     {

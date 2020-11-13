@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\Permission\Exceptions;
+namespace Yiyon\Permission\Exceptions;
 
 use InvalidArgumentException;
 use Illuminate\Support\Collection;

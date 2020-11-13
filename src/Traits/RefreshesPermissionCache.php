@@ -1,8 +1,8 @@
 <?php
 
-namespace Spatie\Permission\Traits;
+namespace Yiyon\Permission\Traits;
 
-use Spatie\Permission\PermissionRegistrar;
+use Yiyon\Permission\PermissionRegistrar;
 
 trait RefreshesPermissionCache
 {

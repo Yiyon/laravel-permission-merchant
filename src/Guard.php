@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\Permission;
+namespace Yiyon\Permission;
 
 use Illuminate\Support\Collection;
 
