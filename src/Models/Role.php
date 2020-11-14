@@ -37,11 +37,11 @@ class Role extends Model implements RoleContract
     {
         parent::boot();
         //默认加上商户编号
-        $merchantscope = config('merchant.merchantscope');
+        $merchantscope = config('permission.merchant.merchantscope');
         static::addGlobalScope($merchantscope,
             function (Builder $builder) {
-                $guard       = config('merchant.guard');
-                $merchant_id = config('merchant.merchant_id');
+                $guard       = config('permission.merchant.guard');
+                $merchant_id = config('permission.merchant.merchant_id');
                 $builder->where($merchant_id, '=', auth($guard)->user()->merchant_id);
             });
     }
