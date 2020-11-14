@@ -1,7 +1,7 @@
 # Associate users with permissions and roles
 
 
-### Sponsor  多商户平台版本
+### Sponsor  多商户平台版本  By 林少能
 
 <table>
    <tr>

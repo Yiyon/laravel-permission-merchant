@@ -1,6 +1,6 @@
 {
-    "name": "spatie/laravel-permission",
-    "description": "Permission handling for Laravel 5.4 to 5.8",
+    "name": "yiyon/laravel-permission-merchant",
+    "description": "Permission handling for Laravel 5.4 to 5.8,增加多商户权限, 北京易用联友",
     "keywords": [
         "spatie",
         "laravel",
@@ -8,12 +8,12 @@
         "acl",
         "security"
     ],
-    "homepage": "https://github.com/spatie/laravel-permission",
+    "homepage": "https://github.com/Yiyon/laravel-permission-merchant",
     "license": "MIT",
     "authors": [
         {
-            "name": "Freek Van der Herten",
-            "email": "freek@spatie.be",
+            "name": "Freek Van der Herten, linshaoneng",
+            "email": "freek@spatie.be, linshaoneng@sina.cn",
             "homepage": "https://spatie.be",
             "role": "Developer"
         }
