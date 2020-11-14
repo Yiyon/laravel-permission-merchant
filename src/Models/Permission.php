@@ -43,25 +43,35 @@ class Permission extends Model implements PermissionContract
             function (Builder $builder) {
                 $guard       = config('permission.merchant.guard');
                 $merchant_id = config('permission.merchant.merchant_id');
-                $builder->where($merchant_id, '=', auth($guard)->user()->merchant_id);
+                $builder->where(config('permission.table_names.permissions') . '.' . $merchant_id,
+                                '=',
+                                auth($guard)->user()->merchant_id);
             });
     }
 
     public static function create(array $attributes = [])
     {
         $attributes['guard_name'] = $attributes['guard_name'] ?? Guard::getDefaultName(static::class);
+        //创建的时候，默认增加商户编号
+        $guard                    = config('permission.merchant.guard');
+        $merchant_id              = config('permission.merchant.merchant_id');
+        $attributes[$merchant_id] = auth($guard)->user()->merchant_id;
 
-        $permission = static::getPermissions(['name' => $attributes['name'], 'guard_name' => $attributes['guard_name']])->first();
+        $permission = static::getPermissions(['name' => $attributes['name'], 'guard_name' => $attributes['guard_name']])
+                            ->first();
 
-        if ($permission) {
+        if ($permission)
+        {
             throw PermissionAlreadyExists::create($attributes['name'], $attributes['guard_name']);
         }
 
-        if (isNotLumen() && app()::VERSION < '5.4') {
+        if (isNotLumen() && app()::VERSION < '5.4')
+        {
             return parent::create($attributes);
         }
 
-        return static::query()->create($attributes);
+        return static::query()
+                     ->create($attributes);
     }
 
     /**
@@ -69,12 +79,10 @@ class Permission extends Model implements PermissionContract
      */
     public function roles(): BelongsToMany
     {
-        return $this->belongsToMany(
-            config('permission.models.role'),
-            config('permission.table_names.role_has_permissions'),
-            'permission_id',
-            'role_id'
-        );
+        return $this->belongsToMany(config('permission.models.role'),
+                                    config('permission.table_names.role_has_permissions'),
+                                    'permission_id',
+                                    'role_id');
     }
 
     /**
@@ -82,30 +90,30 @@ class Permission extends Model implements PermissionContract
      */
     public function users(): MorphToMany
     {
-        return $this->morphedByMany(
-            getModelForGuard($this->attributes['guard_name']),
-            'model',
-            config('permission.table_names.model_has_permissions'),
-            'permission_id',
-            config('permission.column_names.model_morph_key')
-        );
+        return $this->morphedByMany(getModelForGuard($this->attributes['guard_name']),
+                                    'model',
+                                    config('permission.table_names.model_has_permissions'),
+                                    'permission_id',
+                                    config('permission.column_names.model_morph_key'));
     }
 
     /**
      * Find a permission by its name (and optionally guardName).
      *
-     * @param string $name
+     * @param string      $name
      * @param string|null $guardName
      *
+     * @return \Yiyon\Permission\Contracts\Permission
      * @throws \Yiyon\Permission\Exceptions\PermissionDoesNotExist
      *
-     * @return \Yiyon\Permission\Contracts\Permission
      */
     public static function findByName(string $name, $guardName = null): PermissionContract
     {
-        $guardName = $guardName ?? Guard::getDefaultName(static::class);
-        $permission = static::getPermissions(['name' => $name, 'guard_name' => $guardName])->first();
-        if (! $permission) {
+        $guardName  = $guardName ?? Guard::getDefaultName(static::class);
+        $permission = static::getPermissions(['name' => $name, 'guard_name' => $guardName])
+                            ->first();
+        if (!$permission)
+        {
             throw PermissionDoesNotExist::create($name, $guardName);
         }
 
@@ -115,19 +123,21 @@ class Permission extends Model implements PermissionContract
     /**
      * Find a permission by its id (and optionally guardName).
      *
-     * @param int $id
+     * @param int         $id
      * @param string|null $guardName
      *
+     * @return \Yiyon\Permission\Contracts\Permission
      * @throws \Yiyon\Permission\Exceptions\PermissionDoesNotExist
      *
-     * @return \Yiyon\Permission\Contracts\Permission
      */
     public static function findById(int $id, $guardName = null): PermissionContract
     {
-        $guardName = $guardName ?? Guard::getDefaultName(static::class);
-        $permission = static::getPermissions(['id' => $id, 'guard_name' => $guardName])->first();
+        $guardName  = $guardName ?? Guard::getDefaultName(static::class);
+        $permission = static::getPermissions(['id' => $id, 'guard_name' => $guardName])
+                            ->first();
 
-        if (! $permission) {
+        if (!$permission)
+        {
             throw PermissionDoesNotExist::withId($id, $guardName);
         }
 
@@ -137,18 +147,21 @@ class Permission extends Model implements PermissionContract
     /**
      * Find or create permission by its name (and optionally guardName).
      *
-     * @param string $name
+     * @param string      $name
      * @param string|null $guardName
      *
      * @return \Yiyon\Permission\Contracts\Permission
      */
     public static function findOrCreate(string $name, $guardName = null): PermissionContract
     {
-        $guardName = $guardName ?? Guard::getDefaultName(static::class);
-        $permission = static::getPermissions(['name' => $name, 'guard_name' => $guardName])->first();
+        $guardName  = $guardName ?? Guard::getDefaultName(static::class);
+        $permission = static::getPermissions(['name' => $name, 'guard_name' => $guardName])
+                            ->first();
 
-        if (! $permission) {
-            return static::query()->create(['name' => $name, 'guard_name' => $guardName]);
+        if (!$permission)
+        {
+            return static::query()
+                         ->create(['name' => $name, 'guard_name' => $guardName]);
         }
 
         return $permission;
