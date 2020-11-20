@@ -35,6 +35,7 @@ class CreatePermissionTables extends Migration
             $table->integer('merchant_id')->index()->comment('商户编号');
             $table->string('name');$table->tinyInteger('is_system')->default(1)->comment('是否系统权限，1是，2否，客户自定义');
             $table->string('guard_name');
+            $table->string('intro');
             $table->string('display_name');
             $table->tinyInteger('is_system')->default(1)->comment('是否系统权限，1是，2否，客户自定义');
             $table->softDeletes();
